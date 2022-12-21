@@ -1,0 +1,61 @@
+<template>
+    <!-- <lightning-card> -->   
+        <div style="width:330px;margin:10px;">
+            <div style="width:90%; box-shadow: 2px 2px 5px rgb(122, 142, 148);border-radius:10px 10px 0px 0px" align="center">
+                <div style="background-color:#a6a6a6; padding-top:5px; border-radius:5px">
+                    <div class="accordion">
+                        <div class="slds-grid slds-grid_align-spread" style="padding:8px 0px;">
+                            <div class="slds-col">
+                                <div style="font-size:18px;font-weight:400;color:#A6A6A6">
+                                    DELINQUENT
+                                </div>
+                                <div style="font-size:20px;margin-top:2px;color:#212121">
+                                    {creditCardDetails.Bank_Name__c}
+                                </div>
+                                <div style="font-size:14px;margin-top:2px;color:#212121">
+                                    Account ending in 5151
+                                </div>
+                            </div>
+                            <div class="slds-col">
+                                <div class="cardNumber">{creditCardDetails.index}</div>
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-gutters slds-align_absolute-center" style="padding:10px 0px; background-color:#f7f7f7">
+                            <div class="slds-col" style="text-align:start">
+                                <div class="innerCardHeading">
+                                    Balance
+                                </div>
+                                <div class="innerCardContents">
+                                    {creditCardDetails.Enrolled_Balance__c}
+                                </div>
+                            </div>
+                            <div class="slds-col">
+                                <div style="padding:3px 6px; border:1px solid rgb(209, 214, 216);border-radius:30px;background-color:white">
+                                    &rarr;
+                                </div>
+                            </div>
+                            <div class="slds-col" style="text-align:end">
+                                <div class="innerCardHeading" >
+                                    Settled Amount
+                                </div>
+                                <div class="innerCardContents">
+                                    {creditCardDetails.Balance__c}
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding:10px 0px; font-size:14px">
+                            Who is contacting you about this debt?
+                        </div>
+                        <div style="font-size:14px">
+                            {creditCardDetails.Question__c}
+                        </div>
+                        <div style="bottom: 0px;">
+                            <hr style="margin:10px 0px;">
+                            <div class="editBtn slds-align_absolute-center" onclick={handleEditAccount}> &#x1F589; &nbsp; Edit Account</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </lightning-card> -->
+</template>

@@ -1,0 +1,462 @@
+<template>
+    <lightning-card>
+        <div class="navbar slds-grid slds-grid_align-spread slds-p-horizontal_xx-large">
+                <div class="slds-col">
+                    <div class="logo">
+                        <img src={imageURL} style="width: 260px;">
+                    </div>
+                </div>
+
+                <div class="slds-col">
+                    <div class="logoutButton">
+                        <lightning-icon icon-name="utility:logout" onclick={LogoutButton} alternative-text="Logout" title="Logout" style="margin-top:12px"></lightning-icon>
+                    </div>
+                </div>
+            
+            <div class="menuicon">
+                <svg onclick={showSideBar} stroke="currentColor" fill="currentColor" stroke-width="0" version="1.2"
+                    baseProfile="tiny" width="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19 17h-14c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zM19 10h-14c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zM19 3h-14c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a class="active Tabs" href="#home" id="HomeTab" onclick={handleClick}>Home</a>
+            <a href="#news" class="Tabs" id="AccountTab" onclick={handleClick}>Account</a>
+            <a href="#contact" class="Tabs" id="FAQsTab" onclick={handleClick}>FAQs</a>
+            <a href="#about" class="Tabs" id="ContactUsTab" onclick={handleClick}>Contact Us</a>
+        </div>
+
+        <!-- <div class="slds-col slds-size_8-of-12"> -->
+        <template if:true={templateRender.Tab1}>
+            <div class="content">
+                <div class="slds-grid slds-wrap slds-grid_align-spread slds-m-around_x-small">
+                    <div class="slds-col" style="width:400px">
+                        <div class="slds-text-heading_large" style="color:#0f6095;font-weight:700">Welcome back, Allsup!
+                        </div>
+                        <div style="font-size:18px">You're <span style="color:#22b148;font-weight: 700;">On Track </span>
+                            on your savings goal and moving towards becoming debt free!</div>
+                        <div style="font-size:18px;color:#333333;font-weight:bold">You're Savings Balance</div>
+                        <div style="color:#008FD1;font-weight:400; font-size:35px">{progress.completed}</div>
+                        <div style="color:#333333;font-weight:500">Monday, December 12, 2022</div>
+                    </div>
+                    <div class="slds-col" style="width:400px">
+                        <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Basic
+                            Carousel
+                            <lightning-carousel>
+                                <lightning-carousel-image
+                                    src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                                    header="First Card" description="First card description."
+                                    alternative-text="First card accessible description." href="javascript:void(0);">
+                                </lightning-carousel-image>
+                                <lightning-carousel-image
+                                    src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-02.jpg"
+                                    header="Second Card" description="Second card description."
+                                    alternative-text="Second card accessible description." href="javascript:void(0);">
+                                </lightning-carousel-image>
+                                <lightning-carousel-image
+                                    src="https://www.lightningdesignsystem.com/assets/images/carousel/carousel-03.jpg"
+                                    header="Third Card" description="Third card description."
+                                    alternative-text="Third card accessible description." href="javascript:void(0);">
+                                </lightning-carousel-image>
+                            </lightning-carousel>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0px; height: 35px; position:relative">
+                    <div class="progressBar">
+                        <div style="position:absolute; top:20%; left:40%">{progress.completed}  of  {progress.max}</div>
+                        <div class="progressCompleted" data-id="progression" lwc:dom="manual">
+                            <!-- $0.00 of $33,654.50 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cards slds-grid slds-wrap">
+                    <div class="slds-col blueCardCol">
+                        <div class="blueCard">
+                            <div class="inCard">
+                                <a href="" style="color:#15c0f1;font-weight:400; font-size:18px">Deposit Schedule</a>
+                                <br>
+                                <div class="slds-grid slds-wrap slds-grid_align-spread">
+                                    <div class="slds-col">
+                                        <div class="slds-text-body_small"><strong>SAVINGS COMMITMENT</strong></div>
+                                        <div class="slds-text-heading_medium"
+                                            style="color:#008FD1;font-weight:400; font-size:30px">$896.50</div>
+                                    </div>
+                                    <div class="slds-col" style="text-align:end">
+                                        <div class="slds-text-body_small"><strong>DEPOSIT DATE</strong></div>
+                                        <div class="slds-text-heading_medium" style="font-weight:400">Dec 31, 2022</div>
+                                    </div>
+                                    <div class="slds-col slds-size_12-of-12">
+                                        <hr style="border-top:1px solid black; margin:12px">
+                                        <div class="slds-text-title_caps slds-align_absolute-center btn green">Add
+                                            Additional Savings Commitment</div>
+                                        <hr style="border-top:1px solid black; margin:12px">
+                                        <div class="slds-grid slds-grid_align-spread" style="font-size: 12px">
+                                            <div class="slds-col">
+                                                <strong>Last Deposit Received on</strong> 
+                                            </div>
+                                            <div class="slds-col">Sep 3,2020</div>
+                                        </div> 
+                                        <div class="slds-grid slds-grid_align-spread" style="font-size: 12px">
+                                            <div class="slds-col">
+                                                <strong>Amount</strong> 
+                                            </div>
+                                            <div class="slds-col">$2,461.00</div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col blueCardCol">
+                        <div class="blueCard">
+                            <div class="inCard">
+                                <div style="color:#035e99;font-weight:400; font-size:18px">Your Progress On Track</div>
+                                <!-- <br> -->
+                                <div class="slds-grid_vertical">
+                                    <div class="slds-col slds-grid slds-wrap slds-grid_align-spread slds-m-vertical_x-small">
+                                        <div class="slds-col" style="text-align:right; width:60px;">Progress</div>
+                                        <div class="slds-col cardProgressBar">
+                                            <div class="cardProgressCompleted" lwc:dom="manual">
+                                                <!-- {progress.completed} -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-grid slds-wrap slds-grid_align-spread slds-m-vertical_x-small">
+                                        <div class="slds-col" style="text-align:right; width:60px;">Plan Goal</div>
+                                        <div class="slds-col" style="background-color: #008FD1;padding:5px 0px;color:white; min-width:90%">
+                                            <div align="right" style="padding:0px 5px">
+                                                {progress.max}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr style="border-top:1px solid rgb(85, 80, 80); margin:12px">
+                                    <div class="slds-col slds-grid slds-grid_align-spread" >
+                                        <div class="slds-col" style="font-weight: bold; font-size:18px">
+                                            Your Plan Outlook
+                                        </div>
+                                        <div class="slds-col">
+                                            <img src="https://dm.americandebtrelief.com/assets/images/on_track.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-col blueCardCol">
+                        <div class="blueCard">
+                            <div class="inCard">
+                                <div style="color:#035e99;font-weight:400; font-size:18px">Plan Details        
+                                </div>
+                                <div class="slds-grid slds-grid_align-spread" style="font-size: 16px">
+                                    <div class="slds-col">
+                                        <strong>Enrolled Debt:</strong> 
+                                    </div>
+                                    <div class="slds-col">$58,025.00</div>
+                                </div>
+
+                                <div class="slds-grid slds-grid_align-spread" style="font-size: 16px">
+                                    <div class="slds-col">
+                                        <strong>Enrolled Date:</strong> 
+                                    </div>
+                                    <div class="slds-col">8/26/2022</div>
+                                </div>
+
+                                <div class="slds-grid slds-grid_align-spread" style="font-size: 16px">
+                                    <div class="slds-col">
+                                        <strong>Program Duration:</strong> 
+                                    </div>
+                                    <div class="slds-col">36 mo.</div>
+                                </div>    
+                                <hr style="border-top:1px solid black; margin:12px">
+                                <div class="slds-grid slds-grid_align-spread" style="font-size: 12px">
+                                    <div class="slds-col">
+                                        <strong>Accounts Settled</strong> 
+                                    </div>
+                                    <div class="slds-col">0</div>
+                                </div> 
+
+                                <div class="slds-grid slds-grid_align-spread" style="font-size: 12px">
+                                    <div class="slds-col">
+                                        <strong>Accounts Remaining</strong> 
+                                    </div>
+                                    <div class="slds-col">3</div>
+                                </div>   
+                            </div>
+                        </div>
+                  </div>
+            </div>
+                <div id="Accounts">
+                    <div class="slds-text-heading_medium" style="font-weight:400;">Your Accounts <span
+                            style="background-color:#777777; font-size:12px; padding: 3px; border-radius:20px; color:white;">{AccountDetails.length}&nbsp;Accounts</span>
+                    </div>
+
+                    <!-- <div class="slds-grid slds-scrollable_x"> -->
+
+                        <!-- <div class="slider">
+                            <template for:each={AccountDetails} for:item="account">
+                                <div key={account.Id} class="slides">
+                                    <c-home-screen-account-cards credit-card-details={account}>
+                                    </c-home-screen-account-cards>
+                                </div>
+                            </template>
+                          </div> -->
+
+                    <div class="cards">
+                        <template for:each={AccountDetails} for:item="account">
+                            <!-- <div key={account.Id} style="width:330px" class="slds-col slds-size_1-of-3"> -->
+                            <div key={account.Id} class="card">
+                                <c-home-screen-account-cards credit-card-details={account}>
+                                </c-home-screen-account-cards>
+                            </div>
+                        </template>
+                    </div>
+                    <!-- 
+                    <div style="width:350px">
+                        <section class="carousel" aria-label="Gallery">
+                            <ol class="carousel__viewport">
+                        <template for:each={AccountDetails} for:item="account">
+                            <li key={account.Id}
+                                tabindex="0"
+                                class="carousel__slide">
+                                <c-home-screen-account-cards credit-card-details={account}>
+                                </c-home-screen-account-cards>
+                              <div class="carousel__snapper">
+                                <a href="#carousel__slide4"
+                                   class="carousel__prev">Go to last slide</a>
+                                <a href="#carousel__slide2"
+                                   class="carousel__next">Go to next slide</a>
+                              </div> 
+                            </li>
+                        
+                                <li id="carousel__slide1"
+                                    tabindex="0"
+                                    class="carousel__slide">
+                                <div class="carousel__snapper">
+                                    <a href="#carousel__slide4"
+                                    class="carousel__prev">Go to last slide</a>
+                                    <a href="#carousel__slide2"
+                                    class="carousel__next">Go to next slide</a>
+                                </div>
+                                </li>                            
+                                 <li id="carousel__slide2"
+                                  tabindex="0"
+                                  class="carousel__slide">
+                                <div class="carousel__snapper"></div>
+                                <a href="#carousel__slide1"
+                                   class="carousel__prev">Go to previous slide</a>
+                                <a href="#carousel__slide3"
+                                   class="carousel__next">Go to next slide</a>
+                              </li>
+                              <li id="carousel__slide3"
+                                  tabindex="0"
+                                  class="carousel__slide">
+                                <div class="carousel__snapper"></div>
+                                <a href="#carousel__slide2"
+                                   class="carousel__prev">Go to previous slide</a>
+                                <a href="#carousel__slide4"
+                                   class="carousel__next">Go to next slide</a>
+                              </li>
+                              <li id="carousel__slide4"
+                                  tabindex="0"
+                                  class="carousel__slide">
+                                <div class="carousel__snapper"></div>
+                                <a href="#carousel__slide3"
+                                   class="carousel__prev">Go to previous slide</a>
+                                <a href="#carousel__slide1"
+                                   class="carousel__next">Go to first slide</a>
+                              </li> 
+                            </ol>
+                            <aside class="carousel__navigation">
+                              <ol class="carousel__navigation-list">
+                                <li class="carousel__navigation-item">
+                                  <a href="#carousel__slide1"
+                                     class="carousel__navigation-button">Go to slide 1</a>
+                                </li>
+                                <li class="carousel__navigation-item">
+                                  <a href="#carousel__slide2"
+                                     class="carousel__navigation-button">Go to slide 2</a>
+                                </li>
+                                <li class="carousel__navigation-item">
+                                  <a href="#carousel__slide3"
+                                     class="carousel__navigation-button">Go to slide 3</a>
+                                </li>
+                                <li class="carousel__navigation-item">
+                                  <a href="#carousel__slide4"
+                                     class="carousel__navigation-button">Go to slide 4</a>
+                                </li>
+                              </ol>
+                            </aside>
+                          </section>
+                    </div>
+                    <br> <br>
+
+                     -->
+                </div>
+                <div id="FAQsection">
+                    <div class="slds-text-heading_medium" style="font-weight:400;">Frequently Asked Questions</div>
+                    <template for:each={homeScreenFAQs} for:item="FAQs">
+                        <div key={FAQs.Id} align="center" class="FaqCards">
+                            <c-faq-cards question={FAQs.Question__c} answer={FAQs.Answer__c}></c-faq-cards>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template if:true={templateRender.Tab2}>
+            <div class="tabHeader">Account</div>
+            <div class="content">
+                <!-- MODAL starts -->
+                <template if:true={isAddAccount}>
+                        <div class="model">
+                            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+                                <div class="slds-modal__container">
+                                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick={handleModalClose}>
+                                        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Cancel and close</span>
+                                    </button>
+                                    <div class="slds-modal__header">
+                                        <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Bank Account</h1>
+                                    </div>
+                                    <div class="slds-modal__content slds-p-around_medium" style="min-height:350px">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium" style="display:none">
+                                                    <lightning-input class="contactIdField" value={userDetails.Id} label="contact" read-only></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="creditCardBankName" label="Credit Card's Bank Name" required></lightning-input>
+                                                </div>
+                                                <!-- <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="accountHolder" type="picklist" label="Account Holder"></lightning-input>
+                                                </div> -->
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-combobox class="accountHolder"
+                                                        name="progress"
+                                                        label="Account Holder"
+                                                        placeholder="Select Progress"
+                                                        options={optionsforAccountHolders} required>
+                                                    </lightning-combobox>
+                                                </div>
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="accountNumber" type="number" label="Account Number" required></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="enrolledBalance" type="number" label="Enrolled Balance" required></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="dateOfLastPayment" type="date" label="Date of Last Payment" required></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-input class="balance" label="Balance" required></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_12-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                                    <lightning-textarea class="contacting" type="textarea" label="Who is contacting you about this debt?"></lightning-textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-modal__footer">
+                                            <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleModalClose}>Cancel</button>
+                                            <lightning-button variant="brand" type="submit" label="Save" onclick={handleRecordSave}>Save</lightning-button>
+                                        </div>
+                                </div>
+                                <!-- <lightning-record-form  object-api-name="Contact" layout-type="Full" columns="2" mode="edit"></lightning-record-form> -->
+                            </section>
+                            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                        </div>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+         </template>
+            <!-- MODAL ends -->
+                <template for:each={userDetails.Bank_Accounts__r} for:item="BankAccount">
+                    <div key={BankAccount.Id} align="center">
+                        <c-bank-cards credit-card-details={BankAccount}></c-bank-cards>
+                    </div>
+                </template>
+                <div class="AddAccount" onclick={handleAddAccount}>&#43;</div>
+            </div>
+        </template>
+        <template if:true={templateRender.Tab3}>
+            <div class="tabHeader">Frequently Asked Questions</div>
+            <div class="content">
+                <div class="search" style="display: flex;justify-content: flex-end;">
+                    <lightning-input type="search" variant="standard" name="name" placeholder="type here..."
+                        style="width:30%" onchange={SearchFAQ}></lightning-input>
+                </div>
+                <template for:each={faqRecords} for:item="FAQs">
+                    <div key={FAQs.Id} align="center" class="FaqCards">
+                        <c-faq-cards question={FAQs.Question__c} answer={FAQs.Answer__c}></c-faq-cards>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:true={templateRender.Tab4}>
+            <div class="tabHeader">Contact Us</div>
+            <div class="content">
+                <div>
+                    <br>
+                    <h3 style="font-size: 24px;">We are here to help you! What are you contacting us about?</h3>
+                    <h3 style="margin: 0 0 10px; font-size: 18px;">Please select a topic from below:</h3>
+                    <lightning-combobox style="width: 39%; font-weight:bold;" name="progress" label="" value={value}
+                        placeholder="Select Progress" options={options} onchange={SearchFAQforContactUs}>
+                    </lightning-combobox>
+                    <br>
+                </div>
+                <div>
+                    <template if:true={isVisibleRecordNotFoundMessage}>
+                        <h4 style="font-size: 17px; text-align: left; color: red">{recordNotFoundMessage}</h4>
+                    </template>
+                    <template if:true={isVisibleRecordList}>
+                        <template for:each={faqRecordsForContactUS} for:item="FAQs">
+                            <div key={FAQs.Id} align="center" class="FaqCards">
+                                <c-faq-cards question={FAQs.Question__c} answer={FAQs.Answer__c}></c-faq-cards>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+                <div>
+                    <br>
+                    <h4 style="font-size: 18px; text-align: right;"> Mailing Address</h4>
+                </div>
+                <div>
+                    <h4 style="font-size: 17px; text-align: right;">American Debt Relief</h4>
+                    <h4 style="font-size: 17px; text-align: right;">6860 North Dallas Parkway, Suite 200</h4>
+                    <h4 style="font-size: 17px; text-align: right;">Plano, TX</h4>
+                    <h4 style="font-size: 17px; text-align: right;">75024</h4>
+                </div>
+                <div>
+                    <a class="btn btn-rounded btn-block" style="font-size: 17px; text-align: right;"
+                        href="tel:+800-976-4872">Phone 800-976-4872</a>
+                </div>
+                <hr
+                    style="height: 0; box-sizing: content-box; margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eee;">
+                <div>
+                    <h4 style="font-size: 17px; text-align: right;">Still need assistance?</h4>
+                    <h4 style="font-size: 17px; text-align: right;">Mon-Fri, 8am - 7pm CST</h4>
+                </div>
+                <div>
+                    <br>
+                    <button class="btn btn-block" style="text-align: right; border: #ffffff; font-size: 14px;"
+                        disabled={isEmailButtonDisabled}>Email</button>
+                </div>
+                <br><br>
+                <div class="footer-right col-md-6 col-sm-6 text-right" style="text-align: right;">
+                    <small>
+                        <span>©</span>
+                        <span>2018</span>
+                        <span> - 2022</span>
+                        <span>All Rights Reserved</span>
+                    </small>
+                </div>
+            </div>
+        </template>
+        <!-- </div>
+        </div> -->
+
+    </lightning-card>
+</template>

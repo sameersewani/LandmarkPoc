@@ -1,0 +1,15 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.tabStyle {
+    background-color: #13222a;
+    color: white;
+}
+
+.tabHeader{
+	background-image: linear-gradient(60deg,#1562e6 0,#15c0f1 53%,#65e6d7 100%);
+    color: #fff;
+    padding: 50px;
+	text-align: center;
+}

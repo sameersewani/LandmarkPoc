@@ -1,0 +1,69 @@
+/* .mainDiv{
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    height: 22rem;
+    
+}
+.headingDiv{
+    margin-top: 0.2rem;
+    text-align:center;
+}
+.headingH1{
+    color: rgb(94, 105, 115);
+    font-size:0.9rem;
+}
+
+.para{
+    font-size: large;
+    margin-left: 2rem;
+    margin-bottom: 0.8rem;
+    margin-top: 1rem;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #212121;
+
+}
+
+.container{
+    width: 25%;
+}
+.labelClass{
+    font-size: 16px;
+    color: #757575;
+    font-weight: 400;
+    margin-left: 2rem;
+} */
+
+.section:before {
+    content: "";
+    border: 1px solid #d3d3d3;
+    align-self: stretch;
+}
+
+.innerDiv{
+    background: white;
+    width: 60%;
+    position: relative;
+    left: 23%;
+    border-radius: 15px;
+    padding-top: 10px;
+    /* border: solid; */
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    padding-bottom: 11px;
+}
+
+.imgClass{
+    margin-left: 40%;
+    margin-top: 2%;
+    margin-bottom: 2px;
+    /* size: 2px; */
+    height: 4rem;
+}

@@ -1,0 +1,32 @@
+<template>
+    <!-- <lightning-card> -->
+        <div style="width:100%;margin-top:10px">
+            <div style="width:95%; box-shadow: 2px 2px 8px rgb(167, 169, 170);">
+                <button class="accordion" onclick={handleAccordianClick}>
+                    <div class="slds-grid" style="color:#15c0f1;">
+                        <div class="slds-col slds-size_11-of-12" style="padding:8px 0px; font-size:inherit">
+                            <strong>{question}</strong>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12 slds-grid slds-grid_align-end" style="font-size:30px">
+                            <!-- <div class="slds-p-horizontal_small">Enrolled Balancer <br/> {enrolledBalance}</div> -->
+    
+                            <template if:true={cardIsOpen}>
+                                +
+                                <!-- <lightning-icon icon-name="utility:add" alternative-text="add" size="xx-small"></lightning-icon> -->
+                            </template>
+                            <template if:false={cardIsOpen}>
+                                &mdash;
+                                <!-- <lightning-icon icon-name="utility:dash" alternative-text="dash" size="xx-small"></lightning-icon> -->
+                            </template>
+                        </div>
+                    </div>
+                </button>
+                <template if:false={cardIsOpen}>
+                    <div style="background-color:white; border-top:1px solid lightblue; ">
+                        <div class="slds-p-around_x-small">{answer}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    <!-- </lightning-card> -->
+</template>

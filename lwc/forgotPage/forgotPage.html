@@ -1,0 +1,68 @@
+<template>
+
+    <!-- For Desktop -->
+    <div class="Desktop">
+        <div  style= "background: linear-gradient(60deg,#1562e6 0,#15c0f1 53%,#65e6d7 100%);height:100vh;padding-top: 5%;">
+            <div style="background: white; width: 27%; margin: auto; border-radius: 15px;">
+                <div>
+                    <img src={bankLogo} style="margin-left: 26%;margin-top: 6%; width:60%">
+                </div>
+
+            <div style="margin-left: 35px;">
+                <p style=" color: #212121;padding-top: 5%;padding-left: 27%;font-size: 18px;">{propertyValue}</p>
+            
+                <lightning-input style="width: 90%;padding-bottom: 11px;padding-top: 25px;" label="Client ID" placeholder="Enter your Client ID" onchange={idChange}></lightning-input>
+
+                <lightning-input style="width: 90%;padding-bottom: 11px;" type="email" label="Primary Email Address" placeholder="Enter your Primary Email Address" onchange={emailChange}></lightning-input>
+
+                <lightning-input style="width: 90%;padding-bottom: 35px;" type="number" label="Primary Phone Number (format: xxx-xxx-xxxx)" placeholder="Enter your Primary Phone Number" onchange={numberChange}></lightning-input>     
+            </div>
+
+            <div style="margin-left: 35px;">
+                <button class="slds-button slds-button_brand btnn" disabled title="Primary action" onclick={onSubmitClick} style="width: 88%; display: grid; border-radius: 30px;background-color: #15c0f1;
+                border-color: #15c0f1; padding: 4px;"><strong >SUBMIT</strong></button> <br>    
+            </div>
+            <div style="padding-bottom: 7%;">
+                <a style="font-weight: 700;padding-left: 33%;" onclick={returnButton}> Return to login page</a>
+            </div>
+            
+        </div>
+        <p style="color: white;font-size: 150%; padding-left: 41%;
+        padding-top: 2%;">Need Help? Call 800-976-4872
+        </p>  
+    </div>
+</div>
+
+    <!-- For Mobile -->
+    <div class="Mobile">
+            <div  style= "background: linear-gradient(60deg,#1562e6 0,#15c0f1 53%,#65e6d7 100%);height:100vh;padding-top: 5%;">
+                <div style="background: white; width: 85%; margin: auto; border-radius: 15px;">
+                    
+                        <img src={bankLogo} style="margin-left: 30%;width: 50%;margin-top: 2rem;">
+
+                <div style="margin-left: 35px;">
+                    <p style=" color: #212121;padding-top: 5%;padding-left: 27%;font-size: 18px;">{propertyValue}</p>
+                
+                    <lightning-input style="width: 90%;padding-bottom: 11px;padding-top: 25px;" label="Client ID" placeholder="Enter your Client ID" onchange={idChange}></lightning-input>
+
+                    <lightning-input style="width: 90%;padding-bottom: 11px;" type="email" label="Primary Email Address" placeholder="Enter your Primary Email Address" onchange={emailChange}></lightning-input>
+
+                    <lightning-input style="width: 90%;padding-bottom: 35px;" type="number" label="Primary Phone Number (format: xxx-xxx-xxxx)" placeholder="Enter your Primary Phone Number" onchange={numberChange}></lightning-input>     
+                </div>
+
+                <div style="margin-left: 35px;">
+                    <button class="slds-button slds-button_brand btnn" disabled title="Primary action" onclick={onSubmitClick} style="width: 90%; display: grid; border-radius: 30px;background-color: #15c0f1;
+                    border-color: #15c0f1; padding: 4px;"><strong >SUBMIT</strong></button> <br>    
+                </div>
+                <div style="padding-bottom: 7%;">
+                    <a style="font-weight: 700;padding-left: 33%;" onclick={returnButton}> Return to login page</a>
+                </div>
+                
+            </div>
+            <p style="color: white;font-size: 134%; padding-left: 20%;
+            padding-top: 5%;">Need Help? Call 800-976-4872
+            </p>  
+        </div>
+    </div>
+    
+</template>

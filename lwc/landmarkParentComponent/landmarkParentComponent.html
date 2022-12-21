@@ -1,0 +1,21 @@
+<template>
+    <lightning-tabset variant="vertical">
+        <lightning-tab label="Account">
+            <div class="tabHeader">Account</div>
+            <div>
+                contactId : {contactId}
+            </div>
+        </lightning-tab>
+        <lightning-tab label="FAQ" style="background-color:rgb(255, 255, 255)">
+            <div class="tabHeader slds-text-heading_large">Frequently Asked Questions</div>
+            <template for:each={faqRecords} for:item="FAQs">
+                <div key={FAQs.Id} align="center">
+                    <c-faq-cards question={FAQs.Question__c} answer={FAQs.Answer__c}></c-faq-cards>
+                </div>
+            </template>
+        </lightning-tab>
+        <lightning-tab label="Item Three">
+            Three Content !
+        </lightning-tab>
+    </lightning-tabset>
+</template>

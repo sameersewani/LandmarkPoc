@@ -1,0 +1,83 @@
+<template>
+    <!-- <lightning-card> -->   
+        <div style="width:100%;margin:10px">
+            <div style="width:90%; box-shadow: 2px 2px 5px rgb(122, 142, 148);border-radius:10px 10px 0px 0px">
+                <div style="background-color:#a6a6a6; padding-top:5px; border-radius:5px">
+                    <button class="accordion" onclick={handleAccordianClick}>
+                        <div class="slds-grid" style="color:#15c0f1;">
+                            <div class="slds-col slds-size_11-of-12 slds-grid slds-grid_align-spread" style="padding:8px 0px;">
+                                <div class="slds-col">
+                                    <div style="font-size:12px;color:#A6A6A6">
+                                        DELINQUENT
+                                    </div>
+                                    <div style="font-size:20px;margin-top:2px;color:#212121">
+                                        {creditCardDetails.Bank_Name__c}
+                                    </div>
+                                </div>
+                                <div class="slds-col">
+                                    <div style="font-size:12px;color:#A6A6A6;text-align:end">
+                                        Enrolled Balance
+                                    </div>
+                                    <div style="font-size:20px;margin-top:2px;color:#212121;text-align:end">
+                                        {creditCardDetails.Enrolled_Balance__c}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-12 slds-grid slds-grid_align-end" style="font-size:30px">
+                                <!-- <div class="slds-p-horizontal_small">Enrolled Balancer <br/> {creditCardDetails.enrolledBalance}</div> -->
+        
+                                <template if:true={cardIsOpen}>
+                                    +
+                                    <!-- <lightning-icon icon-name="utility:add" alternative-text="add" size="xx-small"></lightning-icon> -->
+                                </template>
+                                <template if:false={cardIsOpen}>
+                                    &mdash;
+                                    <!-- <lightning-icon icon-name="utility:dash" alternative-text="dash" size="xx-small"></lightning-icon> -->
+                                </template>
+                            </div>
+                        </div>
+                    </button>
+                    <template if:false={cardIsOpen}>
+                        <hr style="margin:0px">
+                        <div style="background-color:white">
+                            <div class="slds-wrap slds-p-around_large slds-grid slds-gutters">
+                                <div class="slds-col slds-size_4-of-12">
+                                    <label for="account-holder">Account Holder</label>
+                                    <select class="form-control ng-pristine ng-valid ng-touched" id="account-holder" name="account-holder">
+                                        <option value="Primary">Primary</option>
+                                        <option value="Secondary">Secondary</option>
+                                        <option value="Joint">Joint</option>
+                                    </select>
+                                </div>
+                                <div class="slds-col slds-size_4-of-12">
+                                    <label for="account-number">Account Number</label>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="accNum" name="account-number" type="text" value={creditCardDetails.Account_Number__c}>
+                                </div>
+                                <div class="slds-col slds-size_4-of-12">
+                                    <label for="DateOfLastPayment">Date of Last Payment</label>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="LastPaymentDate" name="DateOfLastPayment" type="Date" value={creditCardDetails.Date_of_Last_Payment__c}>
+                                </div>
+                                <div class="slds-col slds-size_4-of-12">
+                                    <label for="DateOfLastPayment">Enrolled Balance</label>
+                                    <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="EnrolledBalance" type="text" value={creditCardDetails.Enrolled_Balance__c}>
+                                </div>
+                                <div class="slds-col slds-size_4-of-12">
+                                    <label for="DateOfLastPayment">Balance</label>
+                                    <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="Balance" name="Balance" type="text" value={creditCardDetails.Balance__c}>
+                                </div>
+                                <div class="slds-col slds-size_12-of-12">
+                                    <label for="WhoIsLookingUp">Who is contacting you about this debt?</label>
+                                    <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="WhoIsLookingUp" name="WhoIsLookingUp" type="text" value={creditCardDetails.Question__c}>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+                
+    <!-- </lightning-card> -->
+</template>

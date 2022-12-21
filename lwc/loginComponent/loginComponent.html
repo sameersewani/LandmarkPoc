@@ -1,0 +1,49 @@
+<template>
+    <!-- <div class="mainDiv">
+        <div class="headingDiv">
+            <h1 class="headingH1">AmericanDebtRelief</h1>
+        </div>
+
+        <p class="para">Log in to the American Debt Relief Client Portal</p>
+        <div class="container">
+            <label class="labelClass" for="uname"><b>Username</b></label>
+            <input id="uName" type="text" placeholder="Enter Username" name="uname" required>
+            <label class="labelClass" for="psw"><b>Password</b></label>
+            <input id="pswd" type="password" placeholder="Enter Password" name="psw" required>
+        </div>
+    </div> -->
+
+    <div  style="background: linear-gradient(60deg,#180f97 0,#0a055a 53%,#271599 100%);">
+
+        <div class="innerDiv">
+            <div>
+                <img class="imgClass" src={logo}>
+            </div><br><br>
+    
+            <div class="slds-grid slds-gutters section">
+                 <!-- For left -->
+                <div class="slds-col" style="margin-left: 35px; order: -1;">
+                    <p style="font-weight: 700;"> Log in to the Test Relief Client Portal</p><br>
+
+                    <lightning-input style="width: 63%;padding-bottom: 11px;" type="text" label="Username" placeholder="Enter your username"></lightning-input>
+
+                    <lightning-input  style="width: 63%; padding-bottom: 20px;" type="text" label="Password" placeholder="Enter your password">
+                    </lightning-input>
+
+                    <button class="slds-button slds-button_brand" title="Primary action" onclick={onSubmitClick} style="width: 62%; display: grid; border-radius: 30px;     background: #15c0f1; padding: 4px;"><strong >LOGIN</strong></button>
+                    <hr style="width: 65%;">
+                    <a style="margin-left: 73px;"> Forgot Username?</a><br>
+                    <a style="margin-left: 73px;"> Forgot Password?</a><br>
+                </div>
+
+               <!-- For Right -->
+                <div class="slds-col" style="margin-left: 10px;">
+                    <p style="font-weight: 700;"> Don't have an account?</p><br>
+                    <button class="slds-button slds-button_brand" title="Primary action" onclick={onCreate} style="width: 81%; display: grid; border-radius: 30px; background: #15c0f1; padding: 4px;"><strong >CREATE ACCOUNT</strong></button><br>
+                </div>
+
+            </div>     
+        </div> <br>
+        <p style="text-align: center;color: white;font-size: 150%;">Need Help? Call 800-976-4872</p>
+    </div>
+</template>

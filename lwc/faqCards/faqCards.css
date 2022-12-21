@@ -1,0 +1,53 @@
+.accordion {
+    background-color: rgb(255, 255, 255);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: rgb(231, 231, 231); 
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px)
+.panel-card .panel-heading {
+    border-radius: 0;
+}
+.panel-card .panel-heading {
+    position: relative;
+    border-top: 5px solid #a6a6a6;
+    border-radius: 4px;
+}
+.panel .panel-heading {
+    padding: 20px;
+    background-color: #fff;
+    color: #15c0f1;
+    font-weight: 500;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px
+}
