@@ -20,7 +20,9 @@ export default class LogoAndApplicantName extends LightningElement {
     
 
     handleAccordianClick(){
+
         console.log("Accordian clicked");
+        
         switch(this.cardIsOpen) {
             case true:
                 this.cardIsOpen = false;

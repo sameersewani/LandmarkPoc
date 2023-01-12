@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="sidebar">
-            <a class="active Tabs" href="#home" id="HomeTab" onclick={handleClick}>Home</a>
-            <a href="#news" class="Tabs" id="AccountTab" onclick={handleClick}>Account</a>
-            <a href="#contact" class="Tabs" id="FAQsTab" onclick={handleClick}>FAQs</a>
-            <a href="#about" class="Tabs" id="ContactUsTab" onclick={handleClick}>Contact Us</a>
+            <a class="active Tabs" href="#home" data-id="HomeTab" onclick={handleClick}>Home</a>
+            <a href="#news" class="Tabs" data-id="AccountTab" onclick={handleClick}>Account</a>
+            <a href="#contact" class="Tabs" data-id="FAQsTab" onclick={handleClick}>?FrequentlyAskedQuestion</a>
+            <a href="#about" class="Tabs" data-id="ContactUsTab" onclick={handleClick}>Contact Us</a>
         </div>
 
         <!-- <div class="slds-col slds-size_8-of-12"> -->
@@ -135,12 +135,12 @@
                                         </div>
                                     </div>
                                     <hr style="border-top:1px solid rgb(85, 80, 80); margin:12px">
-                                    <div class="slds-col slds-grid slds-grid_align-spread" >
-                                        <div class="slds-col" style="font-weight: bold; font-size:18px">
+                                    <div class="slds-col slds-grid slds-grid_align-spread" style="margin: 0px 2px;">
+                                        <div class="slds-col" style="font-weight: bold; font-size:16px">
                                             Your Plan Outlook
                                         </div>
                                         <div class="slds-col">
-                                            <img src="https://dm.americandebtrelief.com/assets/images/on_track.png">
+                                            <img src={onTrack} style="width:60px; position:relative">
                                         </div>
                                     </div>
                                 </div>
@@ -198,108 +198,36 @@
 
                     <!-- <div class="slds-grid slds-scrollable_x"> -->
 
-                        <!-- <div class="slider">
-                            <template for:each={AccountDetails} for:item="account">
-                                <div key={account.Id} class="slides">
-                                    <c-home-screen-account-cards credit-card-details={account}>
-                                    </c-home-screen-account-cards>
-                                </div>
-                            </template>
-                          </div> -->
-
-                    <div class="cards">
+                        <div class="slider">
+                            <div class="slides">
+                                <template for:each={AccountDetails} for:item="account" for:index="index">
+                                    <div key={account.Id} class="slide">
+                                        <c-home-screen-account-cards credit-card-details={account}>
+                                        </c-home-screen-account-cards>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                          
+                          <!-- <div key={account.Id} style="width:330px" class="slds-col slds-size_1-of-3"> -->
+                    <!-- <div class="cards">
                         <template for:each={AccountDetails} for:item="account">
-                            <!-- <div key={account.Id} style="width:330px" class="slds-col slds-size_1-of-3"> -->
                             <div key={account.Id} class="card">
                                 <c-home-screen-account-cards credit-card-details={account}>
                                 </c-home-screen-account-cards>
                             </div>
                         </template>
-                    </div>
-                    <!-- 
-                    <div style="width:350px">
-                        <section class="carousel" aria-label="Gallery">
-                            <ol class="carousel__viewport">
-                        <template for:each={AccountDetails} for:item="account">
-                            <li key={account.Id}
-                                tabindex="0"
-                                class="carousel__slide">
-                                <c-home-screen-account-cards credit-card-details={account}>
-                                </c-home-screen-account-cards>
-                              <div class="carousel__snapper">
-                                <a href="#carousel__slide4"
-                                   class="carousel__prev">Go to last slide</a>
-                                <a href="#carousel__slide2"
-                                   class="carousel__next">Go to next slide</a>
-                              </div> 
-                            </li>
-                        
-                                <li id="carousel__slide1"
-                                    tabindex="0"
-                                    class="carousel__slide">
-                                <div class="carousel__snapper">
-                                    <a href="#carousel__slide4"
-                                    class="carousel__prev">Go to last slide</a>
-                                    <a href="#carousel__slide2"
-                                    class="carousel__next">Go to next slide</a>
-                                </div>
-                                </li>                            
-                                 <li id="carousel__slide2"
-                                  tabindex="0"
-                                  class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide1"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide3"
-                                   class="carousel__next">Go to next slide</a>
-                              </li>
-                              <li id="carousel__slide3"
-                                  tabindex="0"
-                                  class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide2"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide4"
-                                   class="carousel__next">Go to next slide</a>
-                              </li>
-                              <li id="carousel__slide4"
-                                  tabindex="0"
-                                  class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide3"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide1"
-                                   class="carousel__next">Go to first slide</a>
-                              </li> 
-                            </ol>
-                            <aside class="carousel__navigation">
-                              <ol class="carousel__navigation-list">
-                                <li class="carousel__navigation-item">
-                                  <a href="#carousel__slide1"
-                                     class="carousel__navigation-button">Go to slide 1</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                  <a href="#carousel__slide2"
-                                     class="carousel__navigation-button">Go to slide 2</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                  <a href="#carousel__slide3"
-                                     class="carousel__navigation-button">Go to slide 3</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                  <a href="#carousel__slide4"
-                                     class="carousel__navigation-button">Go to slide 4</a>
-                                </li>
-                              </ol>
-                            </aside>
-                          </section>
-                    </div>
-                    <br> <br>
-
-                     -->
+                    </div> -->
                 </div>
                 <div id="FAQsection">
-                    <div class="slds-text-heading_medium" style="font-weight:400;">Frequently Asked Questions</div>
+                    <div class="slds-grid slds-grid_align-spread" style="margin:5px 0px 3px 0px">
+                        <div class="slds-col">
+                            <div class="slds-text-heading_medium" style="font-weight:400;">Frequently Asked Questions</div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-text-heading_small viewFAQs" onclick={handleViewAllFAQs}>View All FAQs</div>
+                        </div>
+                    </div>
                     <template for:each={homeScreenFAQs} for:item="FAQs">
                         <div key={FAQs.Id} align="center" class="FaqCards">
                             <c-faq-cards question={FAQs.Question__c} answer={FAQs.Answer__c}></c-faq-cards>
@@ -373,7 +301,7 @@
             <div class="slds-backdrop slds-backdrop_open"></div>
          </template>
             <!-- MODAL ends -->
-                <template for:each={userDetails.Bank_Accounts__r} for:item="BankAccount">
+                <template for:each={AccountDetails} for:item="BankAccount">
                     <div key={BankAccount.Id} align="center">
                         <c-bank-cards credit-card-details={BankAccount}></c-bank-cards>
                     </div>

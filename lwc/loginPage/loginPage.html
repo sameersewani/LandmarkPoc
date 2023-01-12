@@ -1,5 +1,87 @@
 <template>
-    <lightning-card style="background-color: red;">
+    
+    <!-- For Desktop -->
+    <div class="Desktop"> 
+        <div style= "background: linear-gradient(60deg,#1562e6 0,#15c0f1 53%,#65e6d7 100%); height: 100vh;padding-top: 5%;">
+            <div style="background: white; width: 50%; margin: auto; border-radius: 15px;">
+                <div>
+                    <img src={bankLogo} style="margin-left: 30%;margin-top: 2%;">
+                </div><br><br>
+        
+                <div class="slds-grid slds-gutters section">
+                    <!-- For left -->
+                    <div class="slds-col" style="margin-left: 6%; order: -1; width:50%">
+                        <p style="font-size: 18px;"> Log in to the Credit Card Debt Relief Client Portal</p><br>
 
-    </lightning-card>
+                        <lightning-input style="width: 90%;padding-bottom: 11px;" data-id="username" type="text" label="Username" placeholder="Enter your username"></lightning-input>
+
+                        <lightning-input data-id="password"   style="width: 90%; padding-bottom: 20px;" type="password" label="Password" placeholder="Enter your password">
+                        </lightning-input>
+
+                        <button class="slds-button slds-button_brand" title="Primary action" onclick={onSubmitClick} style="width: 93%; display: grid; border-radius: 30px;  background-color: #15c0f1;
+                        border-color: #15c0f1; padding: 4px;"><strong >LOGIN</strong></button>
+                        <hr style="width: 95%;">
+                        <div style="margin-left: 27%;display: grid;">
+                            <a onclick={forgotButton}> Forgot Username / Password?</a>
+                        </div> <br>
+                    
+                    </div>
+
+                <!-- For Right -->
+                    <div class="slds-col" style="margin-left: 3%;">
+                        <p style="font-size: 18px;"> Don’t have an account?</p><br>
+                        <button class="slds-button slds-button_brand" title="Primary action" onclick={onCreate} style="width: 120%; display: grid; border-radius: 30px; background-color: #15c0f1;
+                        border-color: #15c0f1; padding: 4px;"><strong >CREATE ACCOUNT</strong></button><br>
+                    </div>
+
+                </div>     
+            </div> <br>
+            <a class="slds-align_absolute-center" style="text-decoration: none; color: white;font-size: 150%;"
+            href="tel:+800-976-4872">Need Help? Call 800-976-4872</a>    
+        
+        </div>
+    </div>
+
+
+
+    <!-- For Mobile > -->
+    <div class="Mobile"> 
+        <div style= "background: linear-gradient(60deg,#1562e6 0,#15c0f1 53%,#65e6d7 100%); height: 100vh;padding-top: 5%;">
+            <div style="background: white; width: 85%; margin: auto; border-radius: 15px;">
+                
+                    <img src={bankLogo} style=" margin-left: 28%;width: 50%;margin-top: 2rem;">
+                <br><br>
+        
+                <div class="slds-grid slds-gutters section">
+                    <!-- For left -->
+                    <div class="slds-col" style="margin-left: 6%; order: -1; width:50%">
+                        <p style="font-size: 18px;"> Log in to the HDFC Bank Debt Relief Client Portal</p><br>
+
+                        <lightning-input style="width: 90%;padding-bottom: 11px;" data-id="username" type="text" label="Username" placeholder="Enter your username"></lightning-input>
+
+                        <lightning-input data-id="password"   style="width: 90%; padding-bottom: 20px;" type="password" label="Password" placeholder="Enter your password">
+                        </lightning-input>
+
+                        <button class="slds-button slds-button_brand" title="Primary action" onclick={onSubmitClick} style="width: 93%; display: grid; border-radius: 30px;  background-color: #15c0f1;
+                        border-color: #15c0f1; padding: 4px;"><strong >LOGIN</strong></button>
+                        <hr style="width: 95%;">
+                        <div style="margin-left: 25%;display: grid;">
+                            <a onclick={forgotButton}> Forgot Username / Password?</a>
+                        </div> <br>
+                    
+                    </div>
+
+                <!-- For Right -->
+                    <div class="slds-col" style="margin-left: 3%;">
+                        <p style="font-size: 18px;"> Don’t have an account?</p><br>
+                        <button class="slds-button slds-button_brand" title="Primary action" onclick={onCreate} style="width: 93%; display: grid; border-radius: 30px;  background-color: #15c0f1; border-color: #15c0f1; padding: 4px;"><strong >CREATE ACCOUNT</strong></button><br>
+                    </div>
+
+                </div>     
+            </div> <br>
+            <a class="slds-align_absolute-center" style="text-decoration: none; color: white;font-size: 150%;"
+            href="tel:+800-976-4872">Need Help? Call 800-976-4872</a>    
+        
+        </div>
+    </div>
 </template>

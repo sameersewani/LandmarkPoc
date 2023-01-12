@@ -24,15 +24,13 @@
                                 </div>
                             </div>
                             <div class="slds-col slds-size_1-of-12 slds-grid slds-grid_align-end" style="font-size:30px">
-                                <!-- <div class="slds-p-horizontal_small">Enrolled Balancer <br/> {creditCardDetails.enrolledBalance}</div> -->
+
         
                                 <template if:true={cardIsOpen}>
                                     +
-                                    <!-- <lightning-icon icon-name="utility:add" alternative-text="add" size="xx-small"></lightning-icon> -->
                                 </template>
                                 <template if:false={cardIsOpen}>
                                     &mdash;
-                                    <!-- <lightning-icon icon-name="utility:dash" alternative-text="dash" size="xx-small"></lightning-icon> -->
                                 </template>
                             </div>
                         </div>
@@ -42,7 +40,7 @@
                         <div style="background-color:white">
                             <div class="slds-wrap slds-p-around_large slds-grid slds-gutters">
                                 <div class="slds-col slds-size_4-of-12">
-                                    <label for="account-holder">Account Holder</label>
+                                    <label for="account-holder" style="float: left;">Account Holder</label>
                                     <select class="form-control ng-pristine ng-valid ng-touched" id="account-holder" name="account-holder">
                                         <option value="Primary">Primary</option>
                                         <option value="Secondary">Secondary</option>
@@ -50,27 +48,27 @@
                                     </select>
                                 </div>
                                 <div class="slds-col slds-size_4-of-12">
-                                    <label for="account-number">Account Number</label>
-                                    <input class="form-control ng-pristine ng-valid ng-touched" id="accNum" name="account-number" type="text" value={creditCardDetails.Account_Number__c}>
+                                    <label for="account-number" style="float: left;">Account Number</label>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="accNum" name="account-number" readonly type="text" value={creditCardDetails.Account_Number__c}>
                                 </div>
                                 <div class="slds-col slds-size_4-of-12">
-                                    <label for="DateOfLastPayment">Date of Last Payment</label>
-                                    <input class="form-control ng-pristine ng-valid ng-touched" id="LastPaymentDate" name="DateOfLastPayment" type="Date" value={creditCardDetails.Date_of_Last_Payment__c}>
+                                    <label for="DateOfLastPayment" style="float: left;">Date of Last Payment</label>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="LastPaymentDate" name="DateOfLastPayment" type="Date" readonly value={creditCardDetails.Date_of_Last_Payment__c}>
                                 </div>
                                 <div class="slds-col slds-size_4-of-12">
-                                    <label for="DateOfLastPayment">Enrolled Balance</label>
+                                    <label for="DateOfLastPayment" style="float: left;">Enrolled Balance</label>
                                     <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
-                                    <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="EnrolledBalance" type="text" value={creditCardDetails.Enrolled_Balance__c}>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="EnrolledBalance" type="text" readonly value={creditCardDetails.Enrolled_Balance__c}>
                                 </div>
                                 <div class="slds-col slds-size_4-of-12">
-                                    <label for="DateOfLastPayment">Balance</label>
+                                    <label for="DateOfLastPayment" style="float: left;">Balance</label>
                                     <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
-                                    <input class="form-control ng-pristine ng-valid ng-touched" id="Balance" name="Balance" type="text" value={creditCardDetails.Balance__c}>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" id="Balance" readonly name="Balance" type="text" value={creditCardDetails.Balance__c}>
                                 </div>
                                 <div class="slds-col slds-size_12-of-12">
-                                    <label for="WhoIsLookingUp">Who is contacting you about this debt?</label>
+                                    <label for="WhoIsLookingUp" style="float: left;">Who is contacting you about this debt?</label>
                                     <!-- <input class="form-control ng-pristine ng-valid ng-touched" id="EnrolledBalance" name="DateOfLastPayment" type="number" min="0.01" step="0.01" max="2500" value={creditCardDetails.EnrolledBalance}> -->
-                                    <input class="form-control ng-pristine ng-valid ng-touched" id="WhoIsLookingUp" name="WhoIsLookingUp" type="text" value={creditCardDetails.Question__c}>
+                                    <input class="form-control ng-pristine ng-valid ng-touched" readonly id="WhoIsLookingUp" name="WhoIsLookingUp" type="text" value={creditCardDetails.Question__c}>
                                 </div>
                             </div>
                         </div>

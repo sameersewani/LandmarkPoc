@@ -14,13 +14,14 @@ import Date_of_Last_Payment from '@salesforce/schema/Bank_Account__c.Date_of_Las
 import Enrolled_Balance from '@salesforce/schema/Bank_Account__c.Enrolled_Balance__c';
 import Question from '@salesforce/schema/Bank_Account__c.Question__c';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-//import getId from '@salesforce/apex/LandMark.getId';
+import ONTRACK_IMG from '@salesforce/resourceUrl/onTrack';
 import logo from '@salesforce/resourceUrl/logo';
 import basepath from '@salesforce/community/basePath';
 
 export default class LandmarkMainParentComponent extends LightningElement {
 
     imageURL=logo ;
+    onTrack = ONTRACK_IMG;
     sidebar = false;
     loginPage=basepath+'/login';
     Objectname = Bank_Account;
@@ -48,9 +49,6 @@ export default class LandmarkMainParentComponent extends LightningElement {
 
     templateRender = { Tab1: true }; // Default Tab as Active
 
-
-    // @api contactId;
-
     // @wire(getFAQs) myWiredRecord({data, error}){
     //     if(data){
     //         console.log(data);
@@ -75,13 +73,22 @@ export default class LandmarkMainParentComponent extends LightningElement {
             let AccountDetails = [];
             this.userDetails = result.Contact;
             console.log(result);
-            AccountDetails = [...this.userDetails.Bank_Accounts__r];
+            AccountDetails = this.userDetails.Bank_Accounts__r;
             let count = 0;
+            console.log(AccountDetails);
+            let fields = ['index', 'Question__c', 'Name', 'Id', 'Enrolled_Balance__c', 'Date_of_Last_Payment__c', 'Contact__c', 'Bank_Name__c', 'Balance__c', 'Account_Number__c', 'Account_Holder__c'];
             AccountDetails.forEach(res => {
                 res.index = ++count;
-                // console.log(res);
+                res.endingDigits = res.Account_Number__c.slice((res.Account_Number__c.length - 4), (res.Account_Number__c.length))
+                // console.log('checking if exist' ,'Bank_Name__c' in res);
+                fields.forEach(field=>{
+                    if(!(field in res)){
+                        res[field] = '';
+                    }
+                })
             })
             this.AccountDetails = [...AccountDetails];
+            console.log(this.AccountDetails);
         }).catch(error => {
             console.error(error);
         })
@@ -96,13 +103,11 @@ export default class LandmarkMainParentComponent extends LightningElement {
         getFAQs().then(result => {
             this.faqRecords = [...result];
             this.homeScreenFAQs = [...result.slice(0, 3)];
-            console.log(result);
+            // console.log(result);
         }).catch(error => {
             console.log('ERROR IN CONN : ', error);
         })
 
-
-        
         // getId()
         // .then(result=>
         // {
@@ -116,12 +121,12 @@ export default class LandmarkMainParentComponent extends LightningElement {
     }
     renderedCallback(){
         let progression = this.template.querySelector('.progressCompleted');
-        console.log(progression);
+        // console.log(progression);
         progression.style.width = this.progress.percentage;
         progression.innerText = '   ';
 
         let progressionCard = this.template.querySelector('.cardProgressCompleted');
-        console.log(progressionCard);
+        // console.log(progressionCard);
         progressionCard.style.width = this.progress.percentage;
         progressionCard.innerText = this.progress.completed;
         // progression.style.height = '35px';
@@ -131,7 +136,7 @@ export default class LandmarkMainParentComponent extends LightningElement {
 
     SearchFAQ(event) {
         searchFAQ({ keyword: event.target.value }).then(result => {
-            console.log(result);
+            // console.log(result);
             this.faqRecords = result;
         })
     }
@@ -271,6 +276,14 @@ export default class LandmarkMainParentComponent extends LightningElement {
             this.sidebar = false;
         }
     }
-    
+    handleViewAllFAQs(){
+        this.template.querySelector('[data-id="FAQsTab"]').click();
+        // window.scrollTo(0, 0);
+        window.scrollTo({
+            top:0,
+            left:0,
+            behavior:"smooth",
+        });
+    }
 
 }

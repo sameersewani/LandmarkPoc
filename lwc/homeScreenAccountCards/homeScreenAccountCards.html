@@ -1,7 +1,7 @@
 <template>
     <!-- <lightning-card> -->   
-        <div style="width:330px;margin:10px;">
-            <div style="width:90%; box-shadow: 2px 2px 5px rgb(122, 142, 148);border-radius:10px 10px 0px 0px" align="center">
+        <div style="width:320px;padding-left: 20px;">
+            <div style="width:100%; box-shadow: 2px 2px 5px rgb(122, 142, 148);border-radius:10px 10px 0px 0px" align="center">
                 <div style="background-color:#a6a6a6; padding-top:5px; border-radius:5px">
                     <div class="accordion">
                         <div class="slds-grid slds-grid_align-spread" style="padding:8px 0px;">
@@ -13,7 +13,7 @@
                                     {creditCardDetails.Bank_Name__c}
                                 </div>
                                 <div style="font-size:14px;margin-top:2px;color:#212121">
-                                    Account ending in 5151
+                                    Account ending in {creditCardDetails.endingDigits}
                                 </div>
                             </div>
                             <div class="slds-col">
